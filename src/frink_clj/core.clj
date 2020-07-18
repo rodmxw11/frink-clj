@@ -1,15 +1,19 @@
 (ns frink-clj.core
   (:import frink.parser.Frink)
-  (:gen-class))
+  (:gen-class)
+)
+
+(defn frink[input]
+   (let [
+           parser (new frink.parser.Frink)
+        ]
+        (.parseString parser input)
+   )
+)
+
 
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
-  (println "Hello, World!")
-  (let [
-         frink (new frink.parser.Frink)
-         results (.parseString frink "2 + 3/4 + 9/17")
-       ]
-       (println results)
-   )  
+  (println (frink "2 + 5/22 + 1234/56789379"))
 )
